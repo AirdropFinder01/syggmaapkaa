@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maaf & Cinta untuk Nita</title>
+  <meta name="description" content="Halaman romantis dengan animasi teks naik-turun dan efek 3D untuk Nita.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#050508;
+      --pink:#ff4d88;
+      --fuchsia:#ff2d95;
+      --violet:#a855f7;
+      --cyan:#22d3ee;
+      --white:#fff;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 800px at 20% -10%, rgba(168,85,247,.15) 0%, transparent 60%),
+                  radial-gradient(1000px 700px at 90% 120%, rgba(34,211,238,.12) 0%, transparent 60%),
+                  var(--bg);
+      color:#f8e9f1;
+      font-family:"Poppins",system-ui,Segoe UI,Arial,Helvetica,sans-serif;
+      overflow:hidden;
+    }
+
+    /* ===== Center hero ===== */
+    .center{
+      position:absolute; inset:0;
+      display:grid; place-items:center;
+      pointer-events:none;
+    }
+    .hero{
+      text-align:center;
+      line-height:1.15;
+      padding:8px 18px;
+      transform: translateY(0);
+      animation: bob 2.4s ease-in-out infinite;
+    }
+
+    /* 3D neon text effect */
+    .threed{
+      font-weight:900;
+      letter-spacing:.5px;
+      background: conic-gradient(from 210deg, #fff 0 10%, #ffd1e7 10% 25%, #ff86b0 25% 45%, #ff4d88 45% 65%, #d946ef 65% 85%, #22d3ee 85% 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      text-shadow:
+        0 1px 0 rgba(255,77,136,.6),
+        0 2px 0 rgba(255,77,136,.55),
+        0 3px 0 rgba(255,77,136,.5),
+        0 6px 12px rgba(255,20,147,.45),
+        0 0 24px rgba(255,20,147,.35),
+        0 0 48px rgba(255,20,147,.25);
+      filter: drop-shadow(0 10px 24px rgba(255,20,147,.2));
+    }
+    h1{font-size:clamp(1.6rem, 1.2rem + 4vw, 3.2rem); margin:.2rem 0}
+    h2{font-size:clamp(1.1rem, .9rem + 2.2vw, 2rem); margin:.2rem 0; font-weight:700}
+
+    @keyframes bob{
+      0%,100%{ transform:translateY(0) }
+      50%{ transform:translateY(-14px) }
+    }
+
+    /* ===== Rising words (many) ===== */
+    .stage{
+      position:absolute; inset:0;
+      overflow:hidden;
+      pointer-events:none;
+    }
+    .msg{
+      position:absolute;
+      bottom:-10vh;
+      font-weight:900;
+      white-space:nowrap;
+      font-size:clamp(1rem,.8rem + 1.6vw,2rem);
+      will-change: transform, opacity;
+      transform: translateY(0) translateZ(0);
+      animation: rise linear infinite;
+      text-shadow:
+        0 1px 0 rgba(255,255,255,.05),
+        0 2px 0 rgba(255,77,136,.45),
+        0 10px 24px rgba(255,20,147,.35);
+      --x: 50;         /* persen posisi horizontal */
+      --dur: 12;       /* detik durasi */
+      --delay: 0;      /* detik delay (boleh negatif) */
+      left: calc(var(--x) * 1%);
+      animation-duration: calc(var(--dur) * 1s);
+      animation-delay: calc(var(--delay) * 1s);
+      color:#ffd7eb;
+    }
+    .msg .accent{
+      font-family:"Great Vibes", cursive;
+      font-weight:400;
+      font-size:1.25em;
+      letter-spacing:.5px;
+      color:#fff;
+      text-shadow:
+        0 1px 0 rgba(255,255,255,.4),
+        0 2px 0 rgba(255,77,136,.6),
+        0 12px 26px rgba(255,20,147,.45);
+    }
+    @keyframes rise{
+      0%{ transform: translateY(10vh) scale(1); opacity:0 }
+      10%{ opacity:1 }
+      100%{ transform: translateY(-120vh) scale(1.08); opacity:.95 }
+    }
+
+    /* little sparkle dots */
+    .spark{
+      position:absolute; inset:0; pointer-events:none; opacity:.25;
+      background:
+        radial-gradient(2px 2px at 10% 30%, #fff 0 60%, transparent 61%) repeat,
+        radial-gradient(2px 2px at 40% 70%, #fff 0 60%, transparent 61%) repeat,
+        radial-gradient(2px 2px at 80% 20%, #fff 0 60%, transparent 61%) repeat;
+      filter: blur(.6px) drop-shadow(0 0 8px #ff4d88);
+      animation: twinkle 5s linear infinite;
+    }
+    @keyframes twinkle{
+      0%,100%{ transform:translateY(0) }
+      50%{ transform:translateY(-6px) }
+    }
+
+    /* helper for small screens */
+    .hint{
+      position:fixed; bottom:10px; left:50%; transform:translateX(-50%);
+      font-size:.8rem; opacity:.5; letter-spacing:.2px;
+    }
+  </style>
+</head>
+<body>
+  <!-- subtle sparkles -->
+  <div class="spark" aria-hidden="true"></div>
+
+  <!-- center hero message: naik-turun (bob) -->
+  <div class="center">
+    <div class="hero">
+      <h1 class="threed">maap yahh syngkuu…</h1>
+      <h2 class="threed">karna ndk ku cariki untuk pagi ini :(</h2>
+    </div>
+  </div>
+
+  <!-- rising animated phrases (banyak & berulang) -->
+  <div class="stage" aria-hidden="true">
+    <!-- You can duplicate or adjust --x, --dur, --delay for variety -->
+    <div class="msg" style="--x:7;  --dur:14; --delay:-1.2">Love you syngkkuuu 💗</div>
+    <div class="msg" style="--x:18; --dur:13; --delay:-6.4"><span class="accent">cintakuu…</span></div>
+    <div class="msg" style="--x:28; --dur:12; --delay:-3.1">Princesskuu… 👑</div>
+    <div class="msg" style="--x:39; --dur:15; --delay:-7.8">Nitanya Azhari, maapp yahh sygg</div>
+    <div class="msg" style="--x:51; --dur:11; --delay:-2.5"><span class="accent">Love you syngkkuuu</span></div>
+    <div class="msg" style="--x:63; --dur:13; --delay:-5.2">cintakuu… selalu</div>
+    <div class="msg" style="--x:74; --dur:12; --delay:-8.6">Princesskuu… paling manis</div>
+    <div class="msg" style="--x:86; --dur:16; --delay:-4.3">maap yahh syngkuu 💞</div>
+
+    <div class="msg" style="--x:12; --dur:12; --delay:-9.2">Love you syngkkuuu 💖</div>
+    <div class="msg" style="--x:24; --dur:14; --delay:-0.8">cintakuu… rindu selalu</div>
+    <div class="msg" style="--x:36; --dur:13; --delay:-6.0">Princesskuu… peluk virtual 🤍</div>
+    <div class="msg" style="--x:48; --dur:12; --delay:-2.0">maap yahh, besok ku cariki duluan</div>
+    <div class="msg" style="--x:60; --dur:15; --delay:-7.0"><span class="accent">cintakuu…</span></div>
+    <div class="msg" style="--x:72; --dur:11; --delay:-3.8">Love you syngkkuuu</div>
+    <div class="msg" style="--x:84; --dur:14; --delay:-5.9">Princesskuu… kamu berharga</div>
+
+    <div class="msg" style="--x:5;  --dur:13; --delay:-4.7">syggkuu..., maaf yaa 🫶</div>
+    <div class="msg" style="--x:17; --dur:12; --delay:-1.5"><span class="accent">Love you syngkkuuu</span></div>
+    <div class="msg" style="--x:29; --dur:16; --delay:-8.1">cintakuu… ku cari terus maki itu syggkuu</div>
+    <div class="msg" style="--x:41; --dur:13; --delay:-5.4">Princesskuu… cantik selalu</div>
+    <div class="msg" style="--x:53; --dur:12; --delay:-2.7">maap yahh syngkuu…</div>
+    <div class="msg" style="--x:65; --dur:15; --delay:-9.0">Love you syngkkuuu 💗</div>
+    <div class="msg" style="--x:77; --dur:11; --delay:-3.2">cintakuu…</div>
+    <div class="msg" style="--x:89; --dur:14; --delay:-6.6">Princesskuu… 👑</div>
+  </div>
+
+  <div class="hint">• Teks tengah naik-turun • Banyak tulisan lain naik berulang dengan efek 3D •</div>
+</body>
+</html>
